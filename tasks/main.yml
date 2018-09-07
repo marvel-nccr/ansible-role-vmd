@@ -29,7 +29,7 @@
     line: '$install_library_dir = "{{ vmd_install_dir}}/lib/$install_name";'
 
 - name: vmd - configure
-  shell: ./configure LINUXAMD64
+  shell: ./configure
   args:
     chdir: "{{ vmd_topdir }}"
     #creates: "{{ vmd_topdir }}/Makefile"
