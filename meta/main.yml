@@ -1,0 +1,18 @@
+---
+allow_duplicates: no
+
+galaxy_info:
+  author: "MARVEL NCCR"
+  description: "An Ansible role that installs [Visual Molecular Dynamics](https://www.ks.uiuc.edu/Research/vmd/)"
+  license: MIT
+  min_ansible_version: 2.5
+  platforms:
+    - name: Ubuntu
+      versions:
+      - xenial
+  galaxy_tags:
+    - ubuntu
+    - application
+    - science
+
+dependencies:
