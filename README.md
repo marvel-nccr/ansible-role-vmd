@@ -21,6 +21,8 @@ See `defaults/main.yml`
   - hosts: servers
     roles:
     - role: marvel-nccr.vmd
+      vars:
+        vmd_download_link: "{{ lookup('file', './keys/vmd-download-link') }}"
 
 ## License
 
