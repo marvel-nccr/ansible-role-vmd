@@ -14,3 +14,4 @@ galaxy_info:
     - ubuntu
     - application
     - science
+  role_name: vmd
