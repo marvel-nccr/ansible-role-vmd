@@ -18,11 +18,13 @@ See `defaults/main.yml`
 
 ## Example Playbook
 
+```yaml
   - hosts: servers
     roles:
     - role: marvel-nccr.vmd
       vars:
         vmd_download_link: "{{ lookup('file', './keys/vmd-download-link') }}"
+```
 
 ## License
 

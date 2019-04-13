@@ -11,37 +11,36 @@
 # (but not sure it is related)
 - name: Extract VMD binaries
   unarchive:
-    src: "{{ vmd_code_folder}}/{{ vmd_binary_archive }}"
+    src: "{{ vmd_code_folder }}/{{ vmd_binary_archive }}"
     dest: "{{ vmd_code_folder }}"
-    remote_src: yes
+    remote_src: true
   when: vmd_download.changed
 
 - name: "Set $install_bin_dir in configure"
   lineinfile:
     path: "{{ vmd_topdir }}/configure"
     regexp: '^\$install_bin_dir="/usr/local/bin";$'
-    line: '$install_bin_dir = "{{ vmd_install_dir}}/bin";'
+    line: '$install_bin_dir = "{{ vmd_install_dir }}/bin";'
 
 - name: "Set $install_library_dir in configure"
   lineinfile:
     path: "{{ vmd_topdir }}/configure"
     regexp: '^\$install_library_dir="/usr/local/lib/\$install_name";$'
-    line: '$install_library_dir = "{{ vmd_install_dir}}/lib/$install_name";'
+    line: '$install_library_dir = "{{ vmd_install_dir }}/lib/$install_name";'
 
 - name: vmd - configure
-  shell: ./configure
+  command: ./configure
   args:
     chdir: "{{ vmd_topdir }}"
-    #creates: "{{ vmd_topdir }}/Makefile"
+    creates: "{{ vmd_topdir }}/Makefile"
   register: vmd_configure
-  #when: vmd_download.changed
 
 - name: vmd - make
-  shell: make install
+  command: make install
   args:
     chdir: "{{ vmd_topdir }}/src"
   register: vmd_make
-  #when: vmd_configure.changed
+  when: vmd_configure.changed
 
 - name: "Put a line in ${HOME}/.profile to add VMD binaries to the path"
   lineinfile:
@@ -52,7 +51,7 @@
   template:
     src: vmd.desktop
     dest: "${HOME}/Desktop"
-    mode: 0753
+    mode: "0753"
   when: not vmd_headless
 
 - include_role:

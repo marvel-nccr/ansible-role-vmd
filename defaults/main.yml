@@ -1,7 +1,7 @@
 ---
 vmd_version: "1.9.4a"
 vmd_extracted_folder: "vmd-1.9.4a12"
-#vmd_download_link: ""
+# vmd_download_link: ""
 
 vmd_code_folder: "{{ ansible_env.HOME }}"
 vmd_binary_archive: "vmd_{{ vmd_version }}.tar.gz"
@@ -9,9 +9,9 @@ vmd_topdir: "{{ vmd_code_folder }}/{{vmd_extracted_folder}}"
 vmd_install_dir: "{{ ansible_env.HOME }}/.local"
 
 vmd_executables:
-- name: vmd.sh
-  folder: "{{ vmd_extracted_folder }}/bin"
+  - name: vmd.sh
+    folder: "{{ vmd_extracted_folder }}/bin"
 
-vmd_headless: True
+vmd_headless: true
 
 root_user: root
