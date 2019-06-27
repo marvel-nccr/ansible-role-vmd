@@ -24,6 +24,7 @@ See `defaults/main.yml`
     - role: marvel-nccr.vmd
       vars:
         vmd_download_link: "{{ lookup('file', './keys/vmd-download-link') }}"
+        vmd_headless: false
 ```
 
 ## License

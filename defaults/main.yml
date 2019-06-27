@@ -1,6 +1,6 @@
 ---
 vmd_version: "1.9.4a"
-vmd_extracted_folder: "vmd-1.9.4a12"
+vmd_extracted_folder: "vmd-1.9.4a31"
 # vmd_download_link: ""
 
 vmd_code_folder: "{{ ansible_env.HOME }}"
